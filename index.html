@@ -6,60 +6,96 @@
 		<script src="2048.js"></script>
 		<script>
 			$(document).ready(function(e) {
+				spawnTwo();
+				spawnTwo();
+				$(document).keypress(function(e) {
+					console.log("keypress: " + e.keyCode);
+					if (gameActive) {
+						switch (e.keyCode) {
+							case 37: // left
+								shiftLeft();
+								break;
+							case 38: // up
+								shiftUp();
+								break;
+							case 39: // right
+								shiftRight();
+								break;
+							case 40: // down
+								shiftDown();
+								break;
+						}
+					}
+					e.preventDefault();
+				});
 				updateBoard();
 			});
 		</script>
 	</head>
 	<body>
+		<div class="alert">
+
+		</div>
+		<div class="score">
+			Score: <span id="value">0</span>
+		</div>
 		<div class="board">
 		<!-- add 2048 and score -->
-			<div class="space">
+			<div class="row">
+				<div class="space">
 
+				</div><!--
+				--><div class="space">
+				
+				</div><!--
+				--><div class="space">
+				
+				</div><!--
+				--><div class="space">
+				
+				</div>
 			</div>
-			<div class="space">
-			
-			</div>
-			<div class="space">
-			
-			</div>
-			<div class="space no-right">
-			
-			</div>
-			<div class="space">
+			<div class="row">
+				<div class="space">
 
+				</div><!--
+				--><div class="space">
+				
+				</div><!--
+				--><div class="space">
+				
+				</div><!--
+				--><div class="space">
+				
+				</div>
 			</div>
-			<div class="space">
-			
-			</div>
-			<div class="space">
-			
-			</div>
-			<div class="space no-right">
-			
-			</div>
-			<div class="space">
+			<div class="row">
+				<div class="space">
 
+				</div><!--
+				--><div class="space">
+				
+				</div><!--
+				--><div class="space">
+				
+				</div><!--
+				--><div class="space">
+				
+				</div>
 			</div>
-			<div class="space">
-			
-			</div>
-			<div class="space">
-			
-			</div>
-			<div class="space no-right">
-			
-			</div>
-			<div class="space no-bottom">
+			<div class="row">
+				<div class="space">
 
-			</div>
-			<div class="space no-bottom">
-			
-			</div>
-			<div class="space no-bottom">
-			
-			</div>
-			<div class="space no-right no-bottom">
-			
+				</div><!--
+				--><div class="space">
+				
+				</div><!--
+				--><div class="space">
+				
+				</div><!--
+				--><div class="space">
+				
+				</div>
 			</div>
 		</div>
 	</body>

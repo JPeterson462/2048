@@ -1,6 +1,24 @@
-html, body {
+html {
 	margin: 0;
 	background-color: rgb(251, 248, 239);
+}
+
+body {
+	width: 640px;
+}
+
+.score {
+	font-size: 32px;
+	font-family: 'Trebuchet MS';
+	color: #999;
+	text-align: right;
+}
+
+.alert {
+	font-size: 32px;
+	font-family: 'Trebuchet MS';
+	color: #999;
+	text-align: center;
 }
 
 .board {
@@ -9,6 +27,12 @@ html, body {
 	padding: 20px;
 	background-color: rgb(187, 173, 162);
 	display: block;
+}
+
+.row {
+	display: inline-block;
+	width: 600px;
+	height: 130px;
 }
 
 .space {
@@ -21,7 +45,7 @@ html, body {
 	border-radius: 10px;
 }
 
-.no-right {
+.row:nth-child(4) {
 	margin-right: 0px;
 }
 
@@ -51,4 +75,24 @@ html, body {
 
 .sixty-four {
 	background-image: url("space64.jpg");
+}
+
+.one-twenty-eight {
+	background-image: url("space128.jpg");
+}
+
+.two-fifty-six {
+	background-image: url("space256.jpg");
+}
+
+.five-twelve {
+	background-image: url("space512.jpg");
+}
+
+.ten-twenty-four {
+	background-image: url("space1024.jpg");
+}
+
+.twenty-forty-eight {
+	background-image: url("space2048.jpg");
 }
