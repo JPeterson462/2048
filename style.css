@@ -1,0 +1,54 @@
+html, body {
+	margin: 0;
+	background-color: rgb(251, 248, 239);
+}
+
+.board {
+	width: 600px;
+	height: 600px;
+	padding: 20px;
+	background-color: rgb(187, 173, 162);
+	display: block;
+}
+
+.space {
+	background-color: rgb(251, 248, 239);
+	display: inline-block;
+	width: 130px;
+	height: 130px;
+	margin-right: 20px;
+	margin-bottom: 20px;
+	border-radius: 10px;
+}
+
+.no-right {
+	margin-right: 0px;
+}
+
+.no-bottom {
+	margin-bottom: 0px;
+}
+
+.two {
+	background-image: url("space2.jpg");
+}
+
+.four {
+	background-image: url("space4.jpg");
+}
+
+.eight {
+	background-image: url("space8.jpg");
+}
+
+.sixteen {
+	background-image: url("space16.jpg");
+}
+
+.thirty-two {
+	background-image: url("space32.jpg");
+}
+
+.sixty-four {
+	background-image: url("space64.jpg");
+}
