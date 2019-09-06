@@ -1,0 +1,20 @@
+.space:before {
+	content: "";
+	display: block;
+	padding-top: 100%;
+}
+.space {
+	margin: 5px;
+	padding: 0px;
+	border-radius: 10px;
+	background-color: rgb(251, 248, 239);
+}
+
+.container-fluid {
+	width: 80vmin;
+}
+
+.board {
+	padding: 8px 20px;
+	background-color: rgb(187, 173, 162);
+}

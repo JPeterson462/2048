@@ -1,102 +1,60 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-		<link href="style.css" rel="stylesheet" type="text/css">
-		<script src="2048.js"></script>
+		<script
+			  src="https://code.jquery.com/jquery-3.4.1.min.js"
+			  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+			  crossorigin="anonymous"></script>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular.min.js" integrity="sha256-23hi0Ag650tclABdGCdMNSjxvikytyQ44vYGo9HyOrU=" crossorigin="anonymous"></script>
+		<link href="css/style.css" rel="stylesheet" type="text/css">
+		<script src="js/BoardController.js"></script>
+		<!--<script src="2048.js"></script>
 		<script>
 			$(document).ready(function(e) {
 				spawnTwo();
 				spawnTwo();
-				$(document).keypress(function(e) {
-					console.log("keypress: " + e.keyCode);
-					if (gameActive) {
-						switch (e.keyCode) {
-							case 37: // left
-								shiftLeft();
-								break;
-							case 38: // up
-								shiftUp();
-								break;
-							case 39: // right
-								shiftRight();
-								break;
-							case 40: // down
-								shiftDown();
-								break;
-						}
+			});
+			$(document).keydown(function(e) {
+				if (gameActive) {
+					switch (e.keyCode) {
+						case 37: // left
+							shiftLeft();
+							break;
+						case 38: // up
+							shiftUp();
+							break;
+						case 39: // right
+							shiftRight();
+							break;
+						case 40: // down
+							shiftDown();
+							break;
 					}
-					e.preventDefault();
-				});
+				}
+				e.preventDefault();
 				updateBoard();
 			});
-		</script>
+		</script>-->
 	</head>
-	<body>
-		<div class="alert">
-
-		</div>
-		<div class="score">
-			Score: <span id="value">0</span>
-		</div>
-		<div class="board">
-		<!-- add 2048 and score -->
+	<body ng-app="2048" ng-controller="BoardController" ng-init="init()">
+		<div class="container-fluid">
 			<div class="row">
-				<div class="space">
-
-				</div><!--
-				--><div class="space">
-				
-				</div><!--
-				--><div class="space">
-				
-				</div><!--
-				--><div class="space">
-				
+				<div class="col-sm-6">
+					2048
 				</div>
-			</div>
-			<div class="row">
-				<div class="space">
-
-				</div><!--
-				--><div class="space">
-				
-				</div><!--
-				--><div class="space">
-				
-				</div><!--
-				--><div class="space">
-				
-				</div>
-			</div>
-			<div class="row">
-				<div class="space">
-
-				</div><!--
-				--><div class="space">
-				
-				</div><!--
-				--><div class="space">
-				
-				</div><!--
-				--><div class="space">
-				
-				</div>
-			</div>
-			<div class="row">
-				<div class="space">
-
-				</div><!--
-				--><div class="space">
-				
-				</div><!--
-				--><div class="space">
-				
-				</div><!--
-				--><div class="space">
-				
+				<div class="col-sm-6">
+					Score: <span ng-bind="score"></span>
 				</div>
 			</div>
 		</div>
+		<div class="container-fluid board">
+			<div class="row" ng-repeat="boardRow in board track by $index">
+				<div class="col-sm space" ng-repeat="boardSpace in boardRow track by $index" background-Img="img/space{{boardSpace}}.jpg">
+				</div>
+			</div>
+		</div>
+		
 	</body>
 </html>
