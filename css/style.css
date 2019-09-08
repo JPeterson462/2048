@@ -18,3 +18,30 @@
 	padding: 8px 20px;
 	background-color: rgb(187, 173, 162);
 }
+
+.large-text {
+	font-size: 64px;
+	font-weight: bold;
+	line-height: 64px !important;
+}
+
+.score-box {
+	width: 50%;
+	max-width: 200px;
+	text-align: center;
+	text-transform: uppercase;
+	color: white;
+	background-color: rgb(187, 173, 160);
+	border-radius: 4px;
+	font-size: 24px;
+	font-weight: bold;
+}
+.score-box .title {
+	font-size: 16px;
+	font-weight: normal;
+}
+
+body {
+	margin-top: 15px;
+	background-color: rgb(251, 248, 239);
+}

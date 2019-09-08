@@ -1,57 +1,50 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<script
-			  src="https://code.jquery.com/jquery-3.4.1.min.js"
-			  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-			  crossorigin="anonymous"></script>
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular.min.js" integrity="sha256-23hi0Ag650tclABdGCdMNSjxvikytyQ44vYGo9HyOrU=" crossorigin="anonymous"></script>
+		<script src="js/jquery-3.4.1.min.js"></script>
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/angular.min.js"></script>
 		<link href="css/style.css" rel="stylesheet" type="text/css">
 		<script src="js/BoardController.js"></script>
-		<!--<script src="2048.js"></script>
-		<script>
-			$(document).ready(function(e) {
-				spawnTwo();
-				spawnTwo();
-			});
-			$(document).keydown(function(e) {
-				if (gameActive) {
-					switch (e.keyCode) {
-						case 37: // left
-							shiftLeft();
-							break;
-						case 38: // up
-							shiftUp();
-							break;
-						case 39: // right
-							shiftRight();
-							break;
-						case 40: // down
-							shiftDown();
-							break;
-					}
-				}
-				e.preventDefault();
-				updateBoard();
-			});
-		</script>-->
 	</head>
-	<body ng-app="2048" ng-controller="BoardController" ng-init="init()">
+	<body ng-app="2048" ng-controller="BoardController" ng-init="init()" ng-keyup="handleKey($event)">
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-sm-6">
-					2048
+					<span class="large-text">
+						2048
+					</span>
 				</div>
-				<div class="col-sm-6">
-					Score: <span ng-bind="score"></span>
+				<div class="col-sm-6" style="padding-right: 0px;">
+					<div class="score-box float-right">
+						<div class="title">
+						Score
+						</div>
+						<span ng-bind="score"></span>
+					</div>
+					<div class="float-right" style="margin-top: 10px; margin-right: 10px;">
+						<button type="btn" class="btn btn-info" ng-click="init()">Restart</button>
+					</div>
 				</div>
 			</div>
 		</div>
+		<div class="modal fade" id="endGameModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		  <div class="modal-dialog" role="document">
+			<div class="modal-content">
+			  <div class="modal-body">
+				<span style="font-size: 36px;">{{result}}</span> <br />
+				Score: {{score}}
+			  </div>
+			  <div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal" ng-click="init()">New Game</button>
+			  </div>
+			</div>
+		  </div>
+		</div>
 		<div class="container-fluid board">
-			<div class="row" ng-repeat="boardRow in board track by $index">
-				<div class="col-sm space" ng-repeat="boardSpace in boardRow track by $index" background-Img="img/space{{boardSpace}}.jpg">
+			<div class="row" ng-repeat="boardRow in board">
+				<div class="col-sm space" ng-repeat="boardSpace in boardRow" background-Img="img/space{{boardSpace.value}}.jpg">
 				</div>
 			</div>
 		</div>
